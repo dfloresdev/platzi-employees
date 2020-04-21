@@ -3,7 +3,7 @@ import "../../assets/styles/components/header/Header.scss";
 
 const Header = () => (
   <div className="menu">
-    <label for="toggle">&#9776;</label>
+    <label htmlFor="toggle">&#9776;</label>
     <input id="toggle" type="checkbox" />
     <div className="menu--items">
       <a href="#" rel="noopener noreferrer">
