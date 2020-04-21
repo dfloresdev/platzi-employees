@@ -1,5 +1,6 @@
 import React from "react";
 import "../../assets/styles/components/hero/Hero.scss";
+import imgElephant from "../../assets/statics/elephant.png";
 
 const Hero = () => (
   <div className="hero">
@@ -18,7 +19,7 @@ const Hero = () => (
     <div className="hero--image">
       <img
         className="hero--image__size"
-        src="../../assets/statics/elephant.png"
+        src={imgElephant}
         alt="Imagen elephant"
       />
     </div>
