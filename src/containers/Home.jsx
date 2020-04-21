@@ -3,7 +3,7 @@ import "../assets/styles/App.css";
 import Header from "../components/header/Header";
 import Hero from "../components/hero/Hero";
 
-function App() {
+function Home() {
   return (
     <div className="App">
       <Header />
@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
