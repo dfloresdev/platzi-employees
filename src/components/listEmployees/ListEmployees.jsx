@@ -1,0 +1,54 @@
+import React, { useState, useEffect } from "react";
+import "../../assets/styles/components/listEmployees/ListEmployees.scss";
+
+const ListEmployees = () => {
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    fetch("https://platzi-master-23c57.wl.r.appspot.com//api/employee/")
+      .then((response) => response.json())
+      .then((data) => setEmployees(data.data));
+  }, []);
+
+  console.log(employees);
+
+  return (
+    <div>
+      <div>
+        <input type="button" value="Agregar" />
+      </div>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Empleado</th>
+              <th>Salario</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {employees.map((employee) => {
+              return (
+                <tr>
+                  <td>
+                    <img src={employee.url_img} height="50px" />
+                  </td>
+                  <td>
+                    {employee.nombre} {employee.apellido}
+                  </td>
+                  <td>{employee.salario}</td>
+                  <td>{employee.estado}</td>
+                  <td></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default ListEmployees;

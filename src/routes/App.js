@@ -4,6 +4,7 @@ import Home from "../containers/Home";
 import Login from "../containers/Login";
 import NotFound from "../containers/NotFound";
 import Layout from "../components/layout/Layout";
+import Dashboard from "../containers/Dashboard";
 
 const App = () => (
   <BrowserRouter>
@@ -11,6 +12,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
