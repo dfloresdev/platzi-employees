@@ -1,25 +1,70 @@
 import React from "react";
 import "../assets/styles/components/login/Login.scss";
-import Hero from "../components/hero/Hero";
+import logo from "../assets/statics/logo.png";
+import Icons from "../assets/styles/components/icons/svgIcons";
 
-const Login = () => (
-  <div>
-    <div>
-      <p>Registrate o inicia sesión</p>
-      <form>
-        inpu
-      </form>
+const Login = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  return (
+    <div className="container">
+      <div className="left-side">
+        <p className="left-side--title">Registrate o inicia sesión</p>
+        <form onSubmit={handleSubmit}>
+          <div className="input-form">
+            <input type="email" placeholder="Correo" />
+          </div>
+          <div className="input-form">
+            <input type="password" placeholder="Contraseña" />
+          </div>
+          <div className="input-form">
+            <input type="password" placeholder="Repite la contraseña" />
+          </div>
+          <div className="input-form">
+            <button>Registrate</button>
+          </div>
+        </form>
+        <div className="right-side">
+          <button className="button-login">
+            <div className="button-login--content">
+              <Icons name="github" fill="#24292e" />
+              GitHub
+            </div>
+          </button>
+          <button className="button-login">
+            <div className="button-login--content">
+              <Icons name="google" />
+              Google
+            </div>
+          </button>
+          <button className="button-login">
+            <div className="button-login--content">
+              <Icons name="twitter" fill="#00acee" />
+              Twitter
+            </div>
+          </button>
+          <button className="button-login">
+            <div className="button-login--content">
+              <Icons name="facebook" fill="#3b5998" />
+              Facebook
+            </div>
+          </button>
+        </div>
+      </div>
       <div>
-        <input type="button" value="GitHub"/>
-        <input type="button" value="Google"/>
-        <input type="button" value="Twitter"/>
-        <input type="button" value="Facebook"/>
+        <img src={logo} alt="Logo dfloresdev" width="350px" />
+        <p>
+          Desarrollado por{" "}
+          <a href="https://dflores.dev" target="_blank">
+            David Flores
+          </a>
+        </p>
+        <p>Anywhere: dfloresdev</p>
       </div>
     </div>
-    <div>
-
-    </div>
-  </div>
-);
+  );
+};
 
 export default Login;

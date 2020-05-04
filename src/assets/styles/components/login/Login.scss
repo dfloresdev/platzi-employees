@@ -1,0 +1,107 @@
+@import "../../variables.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+
+  //   @media only screen and (max-width: 992px) {
+  //   }
+
+  //   @media only screen and (max-width: 600px) {
+  //     .hero--title {
+  //       font-size: 20px;
+  //       text-align: center;
+  //     }
+  //     grid-template-areas:
+  //       "textZone textZone"
+  //       "imageZone imageZone";
+  //   }
+}
+
+.left-side {
+  //   grid-area: left-side;
+  //   background-color: lightblue;
+  padding: 30px;
+
+  &--title {
+    color: $colorText;
+    font-size: 25px;
+    font-weight: 600;
+    // padding-bottom: 10px;
+  }
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0;
+
+  label {
+    color: $colorPrincipal;
+  }
+
+  input {
+    border: none;
+    border-bottom: 2px solid $colorInactiveBorder;
+    font-size: 16px;
+  }
+
+  input:focus {
+    outline: none;
+    border-bottom: 3px solid $colorInactiveBorder;
+  }
+
+  button {
+    margin-top: 15px;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 15px 50px;
+    border-radius: 10px;
+    font-weight: 600;
+    background: $colorPrincipal;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      background: $colorPrincipalActive;
+    }
+  }
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+
+  .button-login {
+    margin-top: 15px;
+    color: black;
+    border: none;
+    font-size: 20px;
+    padding: 10px 50px;
+    border: 4px solid $colorPrincipal;
+    border-radius: 10px;
+    font-weight: 600;
+    background: white;
+    outline: none;
+
+    &--content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      background: $colorPrincipalActive;
+      border: 4px solid $colorPrincipalActive;
+      color: white;
+    }
+  }
+}
