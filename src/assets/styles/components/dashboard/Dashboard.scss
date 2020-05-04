@@ -1,0 +1,11 @@
+@import "../../variables.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "subHeader subHeader";
+
+  .sub-header {
+    grid-area: subHeader;
+  }
+}

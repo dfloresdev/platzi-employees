@@ -9,39 +9,34 @@ const ListEmployees = () => {
 
   return (
     <div>
-      <div>
-        <input type="button" value="Agregar" />
-      </div>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Empleado</th>
-              <th>Salario</th>
-              <th>Estado</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {employees.map((employee) => {
-              return (
-                <tr>
-                  <td>
-                    <img src={employee.url_img} height="50px" />
-                  </td>
-                  <td>
-                    {employee.nombre} {employee.apellido}
-                  </td>
-                  <td>{employee.salario}</td>
-                  <td>{employee.estado}</td>
-                  <td></td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Empleado</th>
+            <th>Salario</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees.map((employee) => {
+            return (
+              <tr>
+                <td>
+                  <img src={employee.url_img} height="50px" />
+                </td>
+                <td>
+                  {employee.nombre} {employee.apellido}
+                </td>
+                <td>{employee.salario}</td>
+                <td>{employee.estado}</td>
+                <td></td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };
