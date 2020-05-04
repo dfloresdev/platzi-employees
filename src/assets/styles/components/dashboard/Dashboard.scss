@@ -2,14 +2,15 @@
 
 .container-dashboard {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "subHeader subHeader subHeader";
+  grid-template-columns: 25% 75%;
+  grid-template-areas: "subHeader subHeader";
   background-color: $colorBackground;
 
   padding-left: 30px;
   padding-right: 30px;
   margin-right: -30px;
   margin-left: -30px;
+  padding-bottom: 30px;
 
   .sub-header {
     grid-area: subHeader;

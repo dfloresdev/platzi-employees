@@ -12,9 +12,31 @@
     padding: 20px;
     text-align: center;
     cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .category:hover {
+    background-color: $colorBackground;
+  }
+
+  &--description {
+    color: $colorTextSecondary;
+    text-transform: uppercase;
   }
 
   .active {
     background-color: $colorBackground;
+  }
+
+  &--header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px 0;
+
+    p {
+      color: $colorTextSecondary;
+    }
   }
 }
