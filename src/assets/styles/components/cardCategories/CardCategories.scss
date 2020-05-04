@@ -1,0 +1,20 @@
+@import "../../variables.scss";
+
+.container-card-categories {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-right: 20px;
+
+  .category {
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .active {
+    background-color: $colorBackground;
+  }
+}
