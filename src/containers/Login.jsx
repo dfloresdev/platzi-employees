@@ -26,7 +26,7 @@ const Login = () => {
             <button>Registrate</button>
           </div>
         </form>
-        <div className="right-side">
+        <div className="login-group">
           <button className="button-login">
             <div className="button-login--content">
               <Icons name="github" fill="#24292e" />
@@ -53,15 +53,17 @@ const Login = () => {
           </button>
         </div>
       </div>
-      <div>
-        <img src={logo} alt="Logo dfloresdev" width="350px" />
+      <div className="right-side">
+        <img src={logo} alt="Logo dfloresdev" />
         <p>
           Desarrollado por{" "}
           <a href="https://dflores.dev" target="_blank">
             David Flores
           </a>
         </p>
-        <p>Anywhere: dfloresdev</p>
+        <p>
+          <strong>Anywhere:</strong> dfloresdev
+        </p>
       </div>
     </div>
   );
