@@ -19,7 +19,12 @@ const Header = () => (
       <Link to="/profile">
         <p>Profile</p>
       </Link>
-      <a></a>
+      <a
+        href="https://platzi-master-23c57.wl.r.appspot.com/api-docs/"
+        target="_blank"
+      >
+        <p>Backend</p>
+      </a>
     </div>
     <div className="menu--userName">
       <p>Username</p>
