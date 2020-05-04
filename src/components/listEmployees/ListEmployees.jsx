@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../../assets/styles/components/listEmployees/ListEmployees.scss";
+import useGetEmployees from "../../hooks/useGetEmployees";
+
+const endpoint = "employee";
 
 const ListEmployees = () => {
-  const [employees, setEmployees] = useState([]);
-
-  useEffect(() => {
-    fetch("https://platzi-master-23c57.wl.r.appspot.com//api/employee/")
-      .then((response) => response.json())
-      .then((data) => setEmployees(data.data));
-  }, []);
-
-  console.log(employees);
+  const employees = useGetEmployees(endpoint);
 
   return (
     <div>
