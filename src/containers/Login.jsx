@@ -9,7 +9,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-login">
       <div className="left-side">
         <p className="left-side--title">Registrate o inicia sesión</p>
         <form onSubmit={handleSubmit}>
