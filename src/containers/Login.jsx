@@ -57,7 +57,11 @@ const Login = () => {
         <img src={logo} alt="Logo dfloresdev" />
         <p>
           Desarrollado por{" "}
-          <a href="https://dflores.dev" target="_blank">
+          <a
+            href="https://dflores.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             David Flores
           </a>
         </p>

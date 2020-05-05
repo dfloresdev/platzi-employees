@@ -5,10 +5,6 @@ import SubHeader from "../components/subHeader/SubHeader";
 import CardCategories from "../components/cardCategories/CardCategories";
 
 const Dashboard = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
   return (
     <div className="container-dashboard">
       <div className="sub-header">

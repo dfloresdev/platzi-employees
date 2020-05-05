@@ -22,6 +22,7 @@ const Header = () => (
       <a
         href="https://platzi-master-23c57.wl.r.appspot.com/api-docs/"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <p>Backend</p>
       </a>
