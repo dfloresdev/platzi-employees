@@ -1,0 +1,15 @@
+.card-employee {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 10% 30% 20% 20% 20%;
+  align-items: center;
+
+  &--buttons {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.actions {
+  cursor: pointer;
+}
