@@ -1,0 +1,38 @@
+@import "../../variables.scss";
+
+.container-list-employees {
+  //   height: 100%;
+  display: grid;
+  grid-template-columns: 10% 30% 20% 20% 20%;
+  align-items: center;
+
+  &--title {
+    font-weight: 600;
+    color: $colorText;
+  }
+
+  .employee {
+    text-align: center;
+  }
+
+  &--checkbox {
+    text-align: center;
+    input.box {
+      height: 25px;
+      width: 25px;
+      background: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.card-employee {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 10% 30% 20% 20% 20%;
+  align-items: center;
+}
+
+.actions {
+  cursor: pointer;
+}
