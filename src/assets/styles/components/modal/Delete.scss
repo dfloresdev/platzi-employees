@@ -1,0 +1,53 @@
+@import "../../variables.scss";
+
+.modal-delete {
+  &--title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 20px;
+    color: #ff0000;
+    font-size: 18px;
+  }
+
+  &--body {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  &--footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 10px;
+  width: 100px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-delete {
+  background-color: red;
+}
+
+.btn-delete:active {
+  background-color: #a70000;
+}
+
+.btn-cancel {
+  background-color: $colorText;
+  margin: 0 20px;
+}
+
+.btn-cancel:active {
+  background-color: #616161;
+}

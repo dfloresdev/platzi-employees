@@ -1,6 +1,6 @@
 import React from "react";
 import Icons from "../../assets/styles/components/icons/svgIcons";
-import Modal from "../modal/Modal";
+import ModalDelete from "../modal/Delete";
 import "../../assets/styles/components/cardEmployee/CardEmployee.scss";
 
 class CardEmployee extends React.Component {
@@ -20,7 +20,7 @@ class CardEmployee extends React.Component {
 
   render() {
     const { employee } = this.props;
-    // console.log(employee);
+
     return (
       <div key={employee._id} className="card-employee">
         <div>
@@ -49,9 +49,11 @@ class CardEmployee extends React.Component {
           <div>
             <Icons name="delete" className="actions" />
           </div>
-          <Modal isOpen={this.state.openModal} actionModal={this.actionModal}>
-            {employee.nombre}
-          </Modal>
+          <ModalDelete
+            openModal={this.state.openModal}
+            actionModal={this.actionModal}
+            employee={employee}
+          />
         </div>
       </div>
     );

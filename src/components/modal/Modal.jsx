@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../../assets/styles/components/modal/modal.scss";
+import "../../assets/styles/components/modal/Modal.scss";
 
 const Modal = (props) => {
-  if (!props.isOpen) {
+  if (!props.openModal) {
     return null;
   }
   return ReactDOM.createPortal(
