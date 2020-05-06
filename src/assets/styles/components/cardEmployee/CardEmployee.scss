@@ -4,9 +4,30 @@
   grid-template-columns: 10% 30% 20% 20% 20%;
   align-items: center;
 
+  padding: 20px 0;
+  background-color: white;
+  margin: 20px;
+  border-radius: 15px;
+
   &--buttons {
     display: flex;
     flex-direction: row;
+  }
+
+  &--employee {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .content-img {
+      margin: 0 10px;
+    }
+
+    &__name {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 }
 

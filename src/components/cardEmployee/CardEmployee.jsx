@@ -28,16 +28,27 @@ class CardEmployee extends React.Component {
             <input type="checkbox" className="box"></input>
           </div>
         </div>
-        <div>
-          {/* <img src="" alt="" /> */}
-          <p>
-            {employee.nombre} {employee.apellido}
-          </p>
-          <p>{employee.cargo}</p>
+        <div className="card-employee--employee">
+          <div
+            className="content-img"
+            style={{
+              background: `url(${employee.url_img}) no-repeat`,
+              backgroundSize: "100% 100%",
+              width: "100px",
+              height: "100px",
+              borderRadius: "50%",
+            }}
+          ></div>
+          <div className="card-employee--employee__name">
+            <p className="title">
+              {employee.nombre} {employee.apellido}
+            </p>
+            <p className="sub-title">{employee.cargo}</p>
+          </div>
         </div>
         <div>
-          <p>{employee.salario} USD</p>
-          <p>{employee.jornada}</p>
+          <p className="title">{employee.salario} USD</p>
+          <p className="sub-title">{employee.jornada}</p>
         </div>
         <div>
           <p>{employee.estado}</p>
