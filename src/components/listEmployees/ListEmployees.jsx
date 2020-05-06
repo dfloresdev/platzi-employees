@@ -8,8 +8,12 @@ const endpoint = "employees";
 const ListEmployees = () => {
   const employees = useGetEmployees(endpoint);
 
+  const deleteEmployee = (uid) => {
+    console.log("eliminando desde raiz", uid);
+  };
+
   const listEmployees = employees.map((employee) => {
-    return <CardEmployee employee={employee} />;
+    return <CardEmployee employee={employee} deleteEmployee={deleteEmployee} />;
   });
 
   return (

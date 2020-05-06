@@ -52,6 +52,7 @@ class CardEmployee extends React.Component {
           <ModalDelete
             openModal={this.state.openModal}
             actionModal={this.actionModal}
+            deleteEmployee={this.props.deleteEmployee}
             employee={employee}
           />
         </div>

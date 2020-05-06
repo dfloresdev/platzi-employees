@@ -5,7 +5,8 @@ import Icons from "../../assets/styles/components/icons/svgIcons";
 
 const Delete = (props) => {
   const { employee } = props;
-  console.log(props);
+
+  //   console.log(props);
   return (
     <Modal openModal={props.openModal} actionModal={props.actionModal}>
       <div className="modal-delete">
@@ -16,7 +17,7 @@ const Delete = (props) => {
 
         <div className="modal-delete--body">
           <p>
-            Nombre:{" "}
+            Nombre:
             <strong>
               {employee.nombre} {employee.apellido}
             </strong>
@@ -30,7 +31,12 @@ const Delete = (props) => {
           <button className="btn btn-cancel" onClick={props.actionModal}>
             Cancelar
           </button>
-          <button className="btn btn-delete">Borrar</button>
+          <button
+            className="btn btn-delete"
+            onClick={props.deleteEmployee.bind(this, employee._id)}
+          >
+            Borrar
+          </button>
         </div>
       </div>
     </Modal>
