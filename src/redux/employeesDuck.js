@@ -1,7 +1,7 @@
 import API from "../APIS/apis";
 
 const URL = API.crudEmployees;
-const ENDPOINT = "employees";
+const ENDPOINT = "/employees";
 
 const GET_EMPLOYEES = "GET_EMPLOYEES";
 const GET_EMPLOYEES_SUCCESS = "GET_EMPLOYEES_SUCCESS";

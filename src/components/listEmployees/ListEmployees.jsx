@@ -1,13 +1,9 @@
 import React from "react";
 import "../../assets/styles/components/listEmployees/ListEmployees.scss";
-import useGetEmployees from "../../hooks/useGetEmployees";
 import CardEmployee from "../../components/cardEmployee/CardEmployee";
+import { connect } from "react-redux";
 
-const endpoint = "employees";
-
-const ListEmployees = () => {
-  const employees = useGetEmployees(endpoint);
-
+const ListEmployees = ({ employees }) => {
   const deleteEmployee = (uid) => {
     console.log("eliminando desde raiz", uid);
   };
@@ -32,4 +28,10 @@ const ListEmployees = () => {
   );
 };
 
-export default ListEmployees;
+const mapStateToProps = (state) => {
+  return {
+    employees: state.employees.data,
+  };
+};
+
+export default connect(mapStateToProps)(ListEmployees);
