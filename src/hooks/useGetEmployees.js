@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const API = require("./apis");
+const API = require("../APIS/apis");
 
 const useGetEmployees = (endpoint = "") => {
   const [employees, setEmployees] = useState([]);

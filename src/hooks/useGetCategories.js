@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const API = require("./apis");
+const API = require("../APIS/apis");
 
 const useGetCategories = (endpoint) => {
   const [categories, setCategories] = useState([]);
