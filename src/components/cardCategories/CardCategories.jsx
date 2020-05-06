@@ -1,13 +1,9 @@
 import React from "react";
 import "../../assets/styles/components/cardCategories/CardCategories.scss";
 import Icons from "../../assets/styles/components/icons/svgIcons";
-import getCategories from "../../hooks/useGetCategories";
+import { connect } from "react-redux";
 
-const endpoint = "employees/categories";
-
-const CardCategories = () => {
-  const categories = getCategories(endpoint);
-
+const CardCategories = ({ categories }) => {
   const listCategories = categories.map((categorie) => (
     <p key={categorie} className="category">
       <span role="img" aria-label={categorie}>
@@ -32,4 +28,8 @@ const CardCategories = () => {
   );
 };
 
-export default CardCategories;
+const mapStateToProps = (state) => ({
+  categories: state.categories.data,
+});
+
+export default connect(mapStateToProps)(CardCategories);
