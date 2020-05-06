@@ -40,15 +40,15 @@ class CardEmployee extends React.Component {
             }}
           ></div>
           <div className="card-employee--employee__name">
-            <p className="title">
+            <p className="title-list">
               {employee.nombre} {employee.apellido}
             </p>
-            <p className="sub-title">{employee.cargo}</p>
+            <p className="sub-title-list">{employee.cargo}</p>
           </div>
         </div>
         <div>
-          <p className="title">{employee.salario} USD</p>
-          <p className="sub-title">{employee.jornada}</p>
+          <p className="title-list">{employee.salario} USD</p>
+          <p className="sub-title-list">{employee.jornada}</p>
         </div>
         <div>
           <p>{employee.estado}</p>
