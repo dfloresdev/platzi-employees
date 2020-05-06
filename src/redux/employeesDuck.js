@@ -1,7 +1,7 @@
 import API from "../APIS/apis";
 
 const URL = API.crudEmployees;
-const ENDPOINT = "/employees";
+const ENDPOINT = "employees";
 
 const GET_EMPLOYEES = "GET_EMPLOYEES";
 const GET_EMPLOYEES_SUCCESS = "GET_EMPLOYEES_SUCCESS";
@@ -15,22 +15,29 @@ const initialDataEmployees = {
 const reducer = (state = initialDataEmployees, actions) => {
   switch (actions.type) {
     case GET_EMPLOYEES:
-      break;
+      return { ...state, fetching: true };
     case GET_EMPLOYEES_SUCCESS:
-      return { ...state, data: actions.payload };
-      break;
+      return { ...state, fetching: false, data: actions.payload };
     case GET_EMPLOYEES_ERROR:
-      return { ...state, error: actions.payload };
-      break;
+      return { ...state, fetching: false, error: actions.payload };
     default:
       return state;
-      break;
   }
 };
 
 export const getEmployeesAction = () => (dispatch, getState) => {
+  dispatch({
+    type: GET_EMPLOYEES,
+  });
+
   return fetch(URL + ENDPOINT)
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw response;
+      }
+    })
     .then((res) => {
       dispatch({
         type: GET_EMPLOYEES_SUCCESS,
@@ -40,7 +47,7 @@ export const getEmployeesAction = () => (dispatch, getState) => {
     .catch((error) => {
       dispatch({
         type: GET_EMPLOYEES_ERROR,
-        payload: error,
+        payload: error.status,
       });
     });
 };
