@@ -29,6 +29,7 @@ const ListEmployees = ({ employees }) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log("state----", state);
   return {
     employees: state.employees.data,
   };

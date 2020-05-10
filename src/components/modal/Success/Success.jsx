@@ -5,14 +5,15 @@ import Icons from "../../../utils/icons/svgIcons";
 import { connect } from "react-redux";
 import { deleteEmployeesAction } from "../../../redux/employeesDuck";
 
-const Delete = ({
+const Success = ({
   employee,
   deleteEmployeesAction,
   openModal,
   actionModal,
 }) => {
   function deleteEmployee(uid) {
-    deleteEmployeesAction(uid);
+    console.log("VOy a borrar ñaca ñaca", uid);
+    deleteEmployeesAction(uid).then(() => {});
   }
 
   return (
@@ -51,4 +52,10 @@ const Delete = ({
   );
 };
 
-export default connect(null, { deleteEmployeesAction })(Delete);
+const mapStateToProps = (stores) {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps)(Success);

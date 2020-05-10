@@ -54,16 +54,15 @@ class CardEmployee extends React.Component {
           <p>{employee.estado}</p>
         </div>
         <div className="card-employee--buttons">
-          <div onClick={this.actionModal}>
+          <div>
             <Icons name="edit" className="actions" />
           </div>
-          <div>
+          <div onClick={this.actionModal}>
             <Icons name="delete" className="actions" />
           </div>
           <ModalDelete
             openModal={this.state.openModal}
             actionModal={this.actionModal}
-            deleteEmployee={this.props.deleteEmployee}
             employee={employee}
           />
         </div>
