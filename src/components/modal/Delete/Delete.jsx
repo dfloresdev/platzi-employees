@@ -1,7 +1,7 @@
 import React from "react";
-import "../../assets/styles/components/modal/Delete.scss";
-import Modal from "./Modal";
-import Icons from "../../assets/styles/components/icons/svgIcons";
+import "./Delete.scss";
+import Modal from "../Modal/Modal";
+import Icons from "../../../utils/icons/svgIcons";
 
 const Delete = (props) => {
   const { employee } = props;

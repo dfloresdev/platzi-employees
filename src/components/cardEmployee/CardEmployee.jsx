@@ -1,7 +1,7 @@
 import React from "react";
-import Icons from "../../assets/styles/components/icons/svgIcons";
-import ModalDelete from "../modal/Delete";
-import "../../assets/styles/components/cardEmployee/CardEmployee.scss";
+import Icons from "../../utils/icons/svgIcons";
+import ModalDelete from "../modal/Delete/Delete";
+import "./CardEmployee.scss";
 
 class CardEmployee extends React.Component {
   constructor(props) {

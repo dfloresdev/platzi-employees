@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/styles/components/subHeader/SubHeader.scss";
+import "./SubHeader.scss";
 
 const SubHeader = () => (
   <div className="container-sub-header">

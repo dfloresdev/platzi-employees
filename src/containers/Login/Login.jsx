@@ -1,7 +1,7 @@
 import React from "react";
-import "../assets/styles/components/login/Login.scss";
-import logo from "../assets/statics/logo.png";
-import Icons from "../assets/styles/components/icons/svgIcons";
+import "./Login.scss";
+import logo from "../../assets/statics/logo.png";
+import Icons from "../../utils/icons/svgIcons";
 
 const Login = () => {
   const handleSubmit = (event) => {

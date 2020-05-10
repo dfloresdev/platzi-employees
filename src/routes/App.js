@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "../containers/Home";
-import Login from "../containers/Login";
+import Login from "../containers/Login/Login";
 import NotFound from "../containers/NotFound";
 import Layout from "../components/layout/Layout";
-import Dashboard from "../containers/Dashboard";
+import Dashboard from "../containers/Dashboard/Dashboard";
 
 const App = () => (
   <BrowserRouter>

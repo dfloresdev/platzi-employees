@@ -1,6 +1,6 @@
 import React from "react";
-import "../../assets/styles/components/cardCategories/CardCategories.scss";
-import Icons from "../../assets/styles/components/icons/svgIcons";
+import "./CardCategories.scss";
+import Icons from "../../utils/icons/svgIcons";
 import { connect } from "react-redux";
 
 const CardCategories = ({ categories }) => {

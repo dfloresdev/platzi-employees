@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../../assets/styles/components/modal/Modal.scss";
+import "./Modal.scss";
 
 const Modal = (props) => {
   if (!props.openModal) {

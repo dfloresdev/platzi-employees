@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/styles/components/listEmployees/ListEmployees.scss";
+import "./ListEmployees.scss";
 import CardEmployee from "../../components/cardEmployee/CardEmployee";
 import { connect } from "react-redux";
 
