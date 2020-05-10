@@ -1,12 +1,13 @@
 @import "../../../styles/variables.scss";
 
-.modal-delete {
+.modal-success {
   &--title {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-top: 20px;
-    color: #ff0000;
+    justify-content: center;
+    padding: 20px 0;
+    color: $colorTextSecondary;
     font-size: 18px;
   }
 

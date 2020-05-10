@@ -2,14 +2,15 @@ import React from "react";
 import "./ListEmployees.scss";
 import CardEmployee from "../../components/cardEmployee/CardEmployee";
 import { connect } from "react-redux";
+import ModalSuccess from "../modal/Success/Success";
 
 const ListEmployees = ({ employees }) => {
-  const deleteEmployee = (uid) => {
-    console.log("eliminando desde raiz", uid);
-  };
+  // const deleteEmployee = (uid) => {
+  // console.log("eliminando desde raiz", uid);
+  // };
 
   const listEmployees = employees.map((employee) => {
-    return <CardEmployee employee={employee} deleteEmployee={deleteEmployee} />;
+    return <CardEmployee employee={employee} />;
   });
 
   return (
@@ -24,12 +25,13 @@ const ListEmployees = ({ employees }) => {
         <p className="container-list-employees--title">Acciones</p>
       </div>
       <div>{listEmployees}</div>
+      <ModalSuccess />
     </>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log("state----", state);
+  // console.log("state----", state);
   return {
     employees: state.employees.data,
   };

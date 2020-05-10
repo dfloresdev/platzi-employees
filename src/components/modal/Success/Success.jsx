@@ -1,50 +1,26 @@
 import React from "react";
-import "./Delete.scss";
+import "./Success.scss";
 import Modal from "../Modal/Modal";
 import Icons from "../../../utils/icons/svgIcons";
 import { connect } from "react-redux";
-import { deleteEmployeesAction } from "../../../redux/employeesDuck";
+import { changeStatusModalSuccessAction } from "../../../redux/employeesDuck";
 
-const Success = ({
-  employee,
-  deleteEmployeesAction,
-  openModal,
-  actionModal,
-}) => {
-  function deleteEmployee(uid) {
-    console.log("VOy a borrar ñaca ñaca", uid);
-    deleteEmployeesAction(uid).then(() => {});
-  }
+const Success = ({ changeStatusModalSuccessAction, modalEmployeeDeleted }) => {
+  const actionModal = () => {
+    changeStatusModalSuccessAction();
+  };
 
   return (
-    <Modal openModal={openModal} actionModal={actionModal}>
-      <div className="modal-delete">
-        <div className="modal-delete--title">
-          <Icons name="delete" fill="#ff0000" width="50px" height="50px" />
-          <p>¿Estas seguro de eliminar el siguiente empleado?</p>
+    <Modal openModal={modalEmployeeDeleted} actionModal={actionModal}>
+      <div className="modal-success">
+        <div className="modal-success--title">
+          <Icons name="success" fill="#cd7cf2" width="50px" height="50px" />
+          <p>Usuario eliminado con éxito</p>
         </div>
 
-        <div className="modal-delete--body">
-          <p>
-            Nombre:
-            <strong>
-              {employee.nombre} {employee.apellido}
-            </strong>
-          </p>
-          <p>
-            Puesto: <strong>{employee.cargo}</strong>
-          </p>
-        </div>
-
-        <div className="modal-delete--footer">
+        <div className="modal-success--footer">
           <button className="btn btn-cancel" onClick={actionModal}>
-            Cancelar
-          </button>
-          <button
-            className="btn btn-delete"
-            onClick={deleteEmployee.bind(this, employee._id)}
-          >
-            Borrar
+            Aceptar
           </button>
         </div>
       </div>
@@ -52,10 +28,12 @@ const Success = ({
   );
 };
 
-const mapStateToProps = (stores) {
+const mapStateToProps = (state) => {
   return {
-    
-  }
-}
+    modalEmployeeDeleted: state.employees.deleted,
+  };
+};
 
-export default connect(mapStateToProps)(Success);
+export default connect(mapStateToProps, { changeStatusModalSuccessAction })(
+  Success,
+);

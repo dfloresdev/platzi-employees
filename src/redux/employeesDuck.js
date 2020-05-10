@@ -12,6 +12,8 @@ const DELETE_EMPLOYEES = "DELETE_EMPLOYEES";
 const DELETE_EMPLOYEES_SUCCESS = "DELETE_EMPLOYEES_SUCCESS";
 const DELETE_EMPLOYEES_ERROR = "DELETE_EMPLOYEES_ERROR";
 
+const MODAL_SUCCESS = "MODAL_SUCCESS";
+
 const initialDataEmployees = {
   fetching: false,
   data: [],
@@ -28,9 +30,11 @@ const reducer = (state = initialDataEmployees, actions) => {
     case DELETE_EMPLOYEES:
       return { ...state, deleting: true };
     case DELETE_EMPLOYEES_SUCCESS:
-      return { ...state, deleting: false, error: actions.payload };
+      return { ...state, deleting: false, deleted: actions.payload };
     case DELETE_EMPLOYEES_ERROR:
       return { ...state, deleting: false, error: actions.payload };
+    case MODAL_SUCCESS:
+      return { ...state, deleted: actions.payload };
     default:
       return state;
   }
@@ -82,7 +86,7 @@ export const deleteEmployeesAction = (uid) => (dispatch, getState) => {
       dispatch(getEmployeesAction());
       dispatch({
         type: DELETE_EMPLOYEES_SUCCESS,
-        payload: false,
+        payload: true,
       });
     })
     .catch((error) => {
@@ -91,6 +95,13 @@ export const deleteEmployeesAction = (uid) => (dispatch, getState) => {
         payload: error.status,
       });
     });
+};
+
+export const changeStatusModalSuccessAction = () => (dispatch, getState) => {
+  dispatch({
+    type: MODAL_SUCCESS,
+    payload: !getState().employees.deleted,
+  });
 };
 
 export default reducer;
