@@ -5,7 +5,6 @@ import Login from "../containers/Login/Login";
 import NotFound from "../containers/NotFound";
 import Layout from "../components/layout/Layout";
 import Dashboard from "../containers/Dashboard/Dashboard";
-import { checkPropTypes } from "prop-types";
 
 function SecureRoutes({ component, path, ...restElements }) {
   const storage = JSON.parse(localStorage.getItem("storage"));

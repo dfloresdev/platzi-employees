@@ -66,10 +66,12 @@ const Login = ({ googleLoginAction, fetching, loggedIn, logOutAction }) => {
         </div>
       )}
       {loggedIn && (
-        <div className="login-group">
-          <div className="input-form">
-            <button onClick={logOut}>Cerrar Sesión</button>
-          </div>
+        <div className="left-side">
+          <form onSubmit={handleSubmit}>
+            <div className="input-form">
+              <button onClick={logOut}>Cerrar sesión</button>
+            </div>
+          </form>
         </div>
       )}
       <div className="right-side">
