@@ -3,7 +3,7 @@
 .container-dashboard {
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-areas: "subHeader subHeader";
+  grid-template-areas: "subHeader subHeader" "cardCategories listEmployees";
   background-color: $colorBackground;
 
   padding-left: 30px;
@@ -14,5 +14,20 @@
 
   .sub-header {
     grid-area: subHeader;
+  }
+
+  .card-categories {
+    grid-area: cardCategories;
+  }
+
+  .list-employees {
+    grid-area: listEmployees;
+  }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-areas:
+      "subHeader subHeader"
+      "cardCategories cardCategories"
+      "listEmployees listEmployees";
   }
 }

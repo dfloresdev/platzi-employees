@@ -39,4 +39,8 @@
       color: $colorTextSecondary;
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 0 20px;
+  }
 }

@@ -10,10 +10,10 @@ const Dashboard = () => {
       <div className="sub-header">
         <SubHeader />
       </div>
-      <div className="">
+      <div className="card-categories">
         <CardCategories />
       </div>
-      <div className="">
+      <div className="list-employees">
         <ListEmployees />
       </div>
     </div>
