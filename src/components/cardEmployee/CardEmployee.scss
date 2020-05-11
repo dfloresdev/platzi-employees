@@ -1,17 +1,20 @@
 .card-employee {
   height: 100%;
   display: grid;
-  grid-template-columns: 10% 30% 20% 20% 20%;
+  grid-template-columns: 10% 30% 25% 20% 15%;
   align-items: center;
 
   padding: 20px 0;
   background-color: white;
-  margin: 20px;
+  margin: 20px 0;
   border-radius: 15px;
 
   &--buttons {
     display: flex;
     flex-direction: row;
+    @media only screen and (max-width: 600px) {
+      margin: 20px 0 0;
+    }
   }
 
   &--employee {
@@ -28,9 +31,20 @@
       flex-direction: column;
       justify-content: center;
     }
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0 10px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
   }
 }
 
 .actions {
   cursor: pointer;
+  margin: 0 10px;
 }

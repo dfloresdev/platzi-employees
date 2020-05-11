@@ -3,7 +3,7 @@
 .container-list-employees {
   //   height: 100%;
   display: grid;
-  grid-template-columns: 10% 30% 20% 20% 20%;
+  grid-template-columns: 10% 30% 25% 20% 15%;
   align-items: center;
 
   &--title {
@@ -23,5 +23,9 @@
       background: white;
       cursor: pointer;
     }
+  }
+
+  @media only screen and (max-width: 600px) {
+    display: none;
   }
 }
