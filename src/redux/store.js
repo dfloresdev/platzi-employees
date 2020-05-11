@@ -1,5 +1,5 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
-import userReducer from "./userDuck";
+import userReducer, { rescueSessionAction } from "./userDuck";
 import { getEmployeesAction } from "./employeesDuck";
 import { getCategoriesAction } from "./categoriesDuck";
 import thunk from "redux-thunk";
@@ -22,6 +22,7 @@ const generateStore = () => {
 
   getEmployeesAction()(store.dispatch, store.getState);
   getCategoriesAction()(store.dispatch, store.getState);
+  rescueSessionAction()(store.dispatch);
 
   return store;
 };
