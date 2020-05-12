@@ -1,4 +1,4 @@
-import { loginWithGoogle, logOutGoogle } from "../firebase";
+import { loginWithGoogle, logOutGoogle } from "./login";
 
 const LOGIN = "LOGIN";
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
