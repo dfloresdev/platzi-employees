@@ -5,10 +5,6 @@ import { connect } from "react-redux";
 import ModalSuccess from "../modal/Success/Success";
 
 const ListEmployees = ({ employees }) => {
-  // const deleteEmployee = (uid) => {
-  // console.log("eliminando desde raiz", uid);
-  // };
-
   const listEmployees = employees.map((employee) => {
     return <CardEmployee employee={employee} />;
   });
@@ -31,7 +27,6 @@ const ListEmployees = ({ employees }) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log("state----", state);
   return {
     employees: state.employees.data,
   };

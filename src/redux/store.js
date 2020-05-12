@@ -12,7 +12,8 @@ let rootReducer = combineReducers({
   categories: categoriesReducer,
 });
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = compose;
 
 const generateStore = () => {
   let store = createStore(

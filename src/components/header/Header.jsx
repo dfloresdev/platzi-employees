@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
+import { connect } from "react-redux";
 
-const Header = () => (
+const Header = ({ userName }) => (
   <nav className="menu">
     <label htmlFor="toggle">&#9776;</label>
     <input id="toggle" type="checkbox" />
@@ -28,9 +29,13 @@ const Header = () => (
       </a>
     </div>
     <div className="menu--userName">
-      <p>Username</p>
+      {userName ? <p>{userName}</p> : <p>Registrate</p>}
     </div>
   </nav>
 );
 
-export default Header;
+const mapStateToProps = (state) => {
+  return { userName: state.user.name };
+};
+
+export default connect(mapStateToProps)(Header);

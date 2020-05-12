@@ -17,7 +17,7 @@ const FormEditEmployee = ({
     addEmployeeAction({ id: employee._id, ...data });
     actionModal();
   };
-  console.log("----- edicion", employee);
+
   return (
     <Modal openModal={openModal} actionModal={actionModal}>
       <div className="modal-form">

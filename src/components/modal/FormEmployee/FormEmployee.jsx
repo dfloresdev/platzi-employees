@@ -125,7 +125,6 @@ const FormEmployee = ({
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     modalStatus: state.employees.modalAddEmployee,
   };
