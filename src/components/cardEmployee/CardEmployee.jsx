@@ -1,6 +1,7 @@
 import React from "react";
 import Icons from "../../utils/icons/svgIcons";
 import ModalDelete from "../modal/Delete/Delete";
+import ModalEditEmployee from "../modal/FormEditEmployee/FormEditEmployee";
 import "./CardEmployee.scss";
 
 class CardEmployee extends React.Component {
@@ -9,12 +10,19 @@ class CardEmployee extends React.Component {
 
     this.state = {
       openModal: false,
+      openEditModal: false,
     };
   }
 
   actionModal = () => {
     this.setState({
       openModal: !this.state.openModal,
+    });
+  };
+
+  actionEditModal = () => {
+    this.setState({
+      openEditModal: !this.state.openEditModal,
     });
   };
 
@@ -54,7 +62,7 @@ class CardEmployee extends React.Component {
           <p>{employee.estado}</p>
         </div>
         <div className="card-employee--buttons">
-          <div>
+          <div onClick={this.actionEditModal}>
             <Icons name="edit" className="actions" />
           </div>
           <div onClick={this.actionModal}>
@@ -63,6 +71,11 @@ class CardEmployee extends React.Component {
           <ModalDelete
             openModal={this.state.openModal}
             actionModal={this.actionModal}
+            employee={employee}
+          />
+          <ModalEditEmployee
+            openModal={this.state.openEditModal}
+            actionModal={this.actionEditModal}
             employee={employee}
           />
         </div>

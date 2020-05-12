@@ -18,13 +18,15 @@ const ADD_EMPLOYEES = "ADD_EMPLOYEES";
 const ADD_EMPLOYEES_SUCCESS = "ADD_EMPLOYEES_SUCCESS";
 const ADD_EMPLOYEES_ERROR = "ADD_EMPLOYEES_ERROR";
 
-const MODAL_FORM = "MODAL_FORM";
+const MODAL_ADD_FORM = "MODAL_ADD_FORM";
+const MODAL_EDIT_FORM = "MODAL_EDIT_FORM";
 
 const initialDataEmployees = {
   fetching: false,
   data: [],
   employee: {},
   modalAddEmployee: false,
+  modalEditEmployee: false,
 };
 
 const reducer = (state = initialDataEmployees, actions) => {
@@ -54,8 +56,10 @@ const reducer = (state = initialDataEmployees, actions) => {
         error: actions.payload,
         modalAddEmployee: false,
       };
-    case MODAL_FORM:
+    case MODAL_ADD_FORM:
       return { ...state, modalAddEmployee: actions.payload };
+    case MODAL_EDIT_FORM:
+      return { ...state, modalEditEmployee: actions.payload };
     default:
       return state;
   }
@@ -169,8 +173,18 @@ export const changeStatusModalAddEmployeeAction = () => (
   getState,
 ) => {
   dispatch({
-    type: MODAL_FORM,
+    type: MODAL_ADD_FORM,
     payload: !getState().employees.modalAddEmployee,
+  });
+};
+
+export const changeStatusModalEditEmployeeAction = () => (
+  dispatch,
+  getState,
+) => {
+  dispatch({
+    type: MODAL_EDIT_FORM,
+    payload: !getState().employees.modalEditEmployee,
   });
 };
 

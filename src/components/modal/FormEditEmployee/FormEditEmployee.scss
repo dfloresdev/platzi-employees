@@ -1,0 +1,29 @@
+@import "../../../styles/variables.scss";
+
+.modal-form {
+  &--title {
+    color: $colorText;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0 0 15px;
+  }
+
+  &--group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .adjust-input {
+    margin: 10px 0;
+
+    .error {
+      color: $colorError;
+    }
+  }
+
+  select {
+    border: none;
+    border-bottom: 2px solid #f9cce6;
+    font-size: 16px;
+  }
+}

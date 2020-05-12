@@ -1,36 +1,34 @@
 import React from "react";
-import "./FormEmployee.scss";
+import "./FormEditEmployee.scss";
 import Modal from "../Modal/Modal";
 import Icons from "../../../utils/icons/svgIcons";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
-import {
-  changeStatusModalAddEmployeeAction,
-  addEmployeeAction,
-} from "../../../redux/employeesDuck";
+import { addEmployeeAction } from "../../../redux/employeesDuck";
 
-const FormEmployee = ({
-  modalStatus,
-  changeStatusModalAddEmployeeAction,
+const FormEditEmployee = ({
+  employee,
+  openModal,
+  actionModal,
   addEmployeeAction,
 }) => {
-  const closeModal = () => changeStatusModalAddEmployeeAction();
-
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
-    addEmployeeAction(data);
+    addEmployeeAction({ id: employee._id, ...data });
+    actionModal();
   };
-
+  console.log("----- edicion", employee);
   return (
-    <Modal openModal={modalStatus} actionModal={closeModal}>
+    <Modal openModal={openModal} actionModal={actionModal}>
       <div className="modal-form">
-        <p className="modal-form--title">Agregar empleado</p>
+        <p className="modal-form--title">Editar empleado</p>
         <form className="modal-form--group" onSubmit={handleSubmit(onSubmit)}>
           <div className="input-form adjust-input">
             <input
               type="text"
               name="url_img"
               placeholder="URL Imagen"
+              defaultValue={employee.url_img}
               ref={register({ required: true, minLength: 10 })}
             />
             {errors.urlImg && <span className="error">Ingresa una URL</span>}
@@ -40,6 +38,7 @@ const FormEmployee = ({
               name="nombre"
               ref={register({ required: true, minLength: 4, maxLength: 20 })}
               type="text"
+              defaultValue={employee.nombre}
               placeholder="Nombre"
             />
             {errors.nombre && <span className="error">Ingresa un nombre</span>}
@@ -49,6 +48,7 @@ const FormEmployee = ({
               name="apellido"
               ref={register({ required: true, minLength: 4, maxLength: 20 })}
               type="text"
+              defaultValue={employee.apellido}
               placeholder="Apellidos"
             />
             {errors.apellido && (
@@ -60,6 +60,7 @@ const FormEmployee = ({
               name="cargo"
               ref={register({ required: true, minLength: 3, maxLength: 20 })}
               type="text"
+              defaultValue={employee.cargo}
               placeholder="Cargo"
             />
             {errors.cargo && <span className="error">Ingresa un cargo</span>}
@@ -69,6 +70,7 @@ const FormEmployee = ({
               name="salario"
               ref={register({ required: true, minLength: 3, maxLength: 7 })}
               type="number"
+              defaultValue={employee.salario}
               placeholder="Salario USD"
             />
             {errors.salario && (
@@ -80,6 +82,7 @@ const FormEmployee = ({
               name="jornada"
               ref={register({ required: true, minLength: 4, maxLength: 20 })}
               type="text"
+              defaultValue={employee.jornada}
               placeholder="Jornada"
             />
             {errors.jornada && (
@@ -90,7 +93,7 @@ const FormEmployee = ({
             <select
               name="estado"
               ref={register({ required: true })}
-              defaultValue="Activo"
+              defaultValue={employee.estado}
             >
               <option value="default" disabled>
                 Selecciona un status
@@ -103,7 +106,7 @@ const FormEmployee = ({
             <select
               name="categoria"
               ref={register({ required: true })}
-              defaultValue="Contruccion 🏗"
+              defaultValue={employee.categoria}
             >
               <option value="default" disabled>
                 Selecciona una categoría
@@ -116,7 +119,7 @@ const FormEmployee = ({
             </select>
           </div>
           <div className="input-form adjust-input">
-            <button>Agregar</button>
+            <button>Actualizar</button>
           </div>
         </form>
       </div>
@@ -124,14 +127,4 @@ const FormEmployee = ({
   );
 };
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    modalStatus: state.employees.modalAddEmployee,
-  };
-};
-
-export default connect(mapStateToProps, {
-  changeStatusModalAddEmployeeAction,
-  addEmployeeAction,
-})(FormEmployee);
+export default connect(null, { addEmployeeAction })(FormEditEmployee);
