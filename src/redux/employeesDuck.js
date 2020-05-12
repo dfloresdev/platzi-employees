@@ -14,9 +14,17 @@ const DELETE_EMPLOYEES_ERROR = "DELETE_EMPLOYEES_ERROR";
 
 const MODAL_SUCCESS = "MODAL_SUCCESS";
 
+const ADD_EMPLOYEES = "ADD_EMPLOYEES";
+const ADD_EMPLOYEES_SUCCESS = "ADD_EMPLOYEES_SUCCESS";
+const ADD_EMPLOYEES_ERROR = "ADD_EMPLOYEES_ERROR";
+
+const MODAL_FORM = "MODAL_FORM";
+
 const initialDataEmployees = {
   fetching: false,
   data: [],
+  employee: {},
+  modalAddEmployee: false,
 };
 
 const reducer = (state = initialDataEmployees, actions) => {
@@ -35,9 +43,46 @@ const reducer = (state = initialDataEmployees, actions) => {
       return { ...state, deleting: false, error: actions.payload };
     case MODAL_SUCCESS:
       return { ...state, deleted: actions.payload };
+    case ADD_EMPLOYEES:
+      return { ...state, fetching: true };
+    case ADD_EMPLOYEES_SUCCESS:
+      return { ...state, fetching: false };
+    case ADD_EMPLOYEES_ERROR:
+      return { ...state, fetching: false, error: actions.payload };
+    case MODAL_FORM:
+      return { ...state, modalAddEmployee: actions.payload };
     default:
       return state;
   }
+};
+
+export const addEmployeeAction = (employeeData) => (dispatch, getSTate) => {
+  dispatch({
+    type: ADD_EMPLOYEES,
+  });
+
+  return fetch(URL + ENDPOINT, { method: "POST", body: employeeData })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw response;
+      }
+    })
+    .then((res) => {
+      dispatch(getCategoriesAction());
+      dispatch(getEmployeesAction());
+      dispatch({
+        type: ADD_EMPLOYEES_SUCCESS,
+        payload: true,
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: ADD_EMPLOYEES_ERROR,
+        payload: error.status,
+      });
+    });
 };
 
 export const getEmployeesAction = () => (dispatch, getState) => {
@@ -101,6 +146,16 @@ export const changeStatusModalSuccessAction = () => (dispatch, getState) => {
   dispatch({
     type: MODAL_SUCCESS,
     payload: !getState().employees.deleted,
+  });
+};
+
+export const changeStatusModalAddEmployeeAction = () => (
+  dispatch,
+  getState,
+) => {
+  dispatch({
+    type: MODAL_FORM,
+    payload: !getState().employees.modalAddEmployee,
   });
 };
 

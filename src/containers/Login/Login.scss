@@ -36,47 +36,6 @@
   }
 }
 
-.input-form {
-  display: flex;
-  flex-direction: column;
-  margin: 50px 0;
-
-  label {
-    color: $colorPrincipal;
-  }
-
-  input {
-    border: none;
-    border-bottom: 2px solid $colorInactiveBorder;
-    font-size: 16px;
-  }
-
-  input:focus {
-    outline: none;
-    border-bottom: 3px solid $colorInactiveBorder;
-  }
-
-  button {
-    margin-top: 15px;
-    color: white;
-    border: none;
-    font-size: 20px;
-    padding: 15px 50px;
-    border-radius: 10px;
-    font-weight: 600;
-    background: $colorPrincipal;
-    outline: none;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:active {
-      background: $colorPrincipalActive;
-    }
-  }
-}
-
 .login-group {
   display: flex;
   flex-direction: column;
