@@ -2,59 +2,120 @@ import React from "react";
 import "./FormEmployee.scss";
 import Modal from "../Modal/Modal";
 import Icons from "../../../utils/icons/svgIcons";
+import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
-import { changeStatusModalAddEmployeeAction } from "../../../redux/employeesDuck";
+import {
+  changeStatusModalAddEmployeeAction,
+  addEmployeeAction,
+} from "../../../redux/employeesDuck";
 
-const FormEmployee = ({ modalStatus, changeStatusModalAddEmployeeAction }) => {
+const FormEmployee = ({
+  modalStatus,
+  changeStatusModalAddEmployeeAction,
+  addEmployeeAction,
+}) => {
   const closeModal = () => changeStatusModalAddEmployeeAction();
 
-  // "url_img": "https://depor.com/resizer/l7uTaSj9lThlqHZfbW0c9Fy975A=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/HFVP57OUENFYDF2KPTKUCW4LQA.jpg",
-  // "nombre": "Wolverine",
-  // "apellido": "Weapon X",
-  // "cargo": "fullstack",
-  // "salario": "156000",
-  // "jornada": "full-time",
-  // "estado": "activo",
-  // "categoria": "Militar 🤖"
-
-  const addEmployee = (event) => {
-    event.preventDefault();
-    console.log(event);
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = (data) => {
+    // console.log("final --->", data);
+    addEmployeeAction(data);
   };
+
+  console.log("watch url", errors);
 
   return (
     <Modal openModal={modalStatus} actionModal={closeModal}>
       <div className="modal-form">
         <p className="modal-form--title">Agregar empleado</p>
-        <form className="modal-form--group" onSubmit={addEmployee}>
+        <form className="modal-form--group" onSubmit={handleSubmit(onSubmit)}>
           <div className="input-form adjust-input">
-            <input type="text" placeholder="URL Imagen" />
+            <input
+              type="text"
+              name="url_img"
+              placeholder="URL Imagen"
+              ref={register({ required: true, minLength: 10 })}
+            />
+            {errors.urlImg && <span className="error">Ingresa una URL</span>}
           </div>
           <div className="input-form adjust-input">
-            <input type="text" placeholder="Nombre" />
+            <input
+              name="nombre"
+              ref={register({ required: true, minLength: 4, maxLength: 20 })}
+              type="text"
+              placeholder="Nombre"
+            />
+            {errors.nombre && <span className="error">Ingresa un nombre</span>}
           </div>
           <div className="input-form adjust-input">
-            <input type="text" placeholder="Apellidos" />
+            <input
+              name="apellido"
+              ref={register({ required: true, minLength: 4, maxLength: 20 })}
+              type="text"
+              placeholder="Apellidos"
+            />
+            {errors.apellido && (
+              <span className="error">Ingresa un apellido</span>
+            )}
           </div>
           <div className="input-form adjust-input">
-            <input type="text" placeholder="Cargo" />
+            <input
+              name="cargo"
+              ref={register({ required: true, minLength: 3, maxLength: 20 })}
+              type="text"
+              placeholder="Cargo"
+            />
+            {errors.cargo && <span className="error">Ingresa un cargo</span>}
           </div>
           <div className="input-form adjust-input">
-            <input type="number" placeholder="Salario USD" />
+            <input
+              name="salario"
+              ref={register({ required: true, minLength: 3, maxLength: 7 })}
+              type="number"
+              placeholder="Salario USD"
+            />
+            {errors.salario && (
+              <span className="error">Ingresa un salario</span>
+            )}
           </div>
           <div className="input-form adjust-input">
-            <input type="text" placeholder="Jornada" />
+            <input
+              name="jornada"
+              ref={register({ required: true, minLength: 4, maxLength: 20 })}
+              type="text"
+              placeholder="Jornada"
+            />
+            {errors.jornada && (
+              <span className="error">Ingresa una jornada</span>
+            )}
           </div>
           <div className="input-form adjust-input">
-            <input type="text" placeholder="Estado" />
+            <select
+              name="estado"
+              ref={register({ required: true })}
+              defaultValue="Activo"
+            >
+              <option value="default" disabled>
+                Selecciona un status
+              </option>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
           </div>
           <div className="input-form adjust-input">
-            <select>
-              <option value="deportes ">Deportes 🥎</option>
-              <option value="automoviles">Automóviles 🚘</option>
-              <option value="contruccion">Contrucción 🏗</option>
-              <option value="programacion">Programación 💻</option>
-              <option value="animales">Animales 🐶</option>
+            <select
+              name="categoria"
+              ref={register({ required: true })}
+              defaultValue="Contruccion 🏗"
+            >
+              <option value="default" disabled>
+                Selecciona una categoría
+              </option>
+              <option value="Deportes 🥎">Deportes 🥎</option>
+              <option value="Automoviles 🚘">Automóviles 🚘</option>
+              <option value="Construccion 🏗">Construcción 🏗</option>
+              <option value="Programacion 💻">Programación 💻</option>
+              <option value="Animales 🐶">Animales 🐶</option>
             </select>
           </div>
           <div className="input-form adjust-input">
@@ -73,6 +134,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { changeStatusModalAddEmployeeAction })(
-  FormEmployee,
-);
+export default connect(mapStateToProps, {
+  changeStatusModalAddEmployeeAction,
+  addEmployeeAction,
+})(FormEmployee);

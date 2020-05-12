@@ -46,9 +46,14 @@ const reducer = (state = initialDataEmployees, actions) => {
     case ADD_EMPLOYEES:
       return { ...state, fetching: true };
     case ADD_EMPLOYEES_SUCCESS:
-      return { ...state, fetching: false };
+      return { ...state, fetching: false, modalAddEmployee: false };
     case ADD_EMPLOYEES_ERROR:
-      return { ...state, fetching: false, error: actions.payload };
+      return {
+        ...state,
+        fetching: false,
+        error: actions.payload,
+        modalAddEmployee: false,
+      };
     case MODAL_FORM:
       return { ...state, modalAddEmployee: actions.payload };
     default:
@@ -56,12 +61,22 @@ const reducer = (state = initialDataEmployees, actions) => {
   }
 };
 
-export const addEmployeeAction = (employeeData) => (dispatch, getSTate) => {
+export const addEmployeeAction = (employeeData) => async (
+  dispatch,
+  getSTate,
+) => {
   dispatch({
     type: ADD_EMPLOYEES,
   });
 
-  return fetch(URL + ENDPOINT, { method: "POST", body: employeeData })
+  return await fetch(URL + ENDPOINT, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(employeeData),
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
